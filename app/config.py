@@ -55,7 +55,7 @@ class Config(BaseSettings):
     TEST_DATABASE_URL: str = ""
 
     class Config:
-        env_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
+        env_file = "/etc/secrets/.env"
 
         @classmethod
         def load_env(cls):
