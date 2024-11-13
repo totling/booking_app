@@ -25,21 +25,6 @@ class Config(BaseSettings):
         )
         return v
 
-    TEST_DB_HOST: str
-    TEST_DB_PORT: int
-    TEST_DB_USER: str
-    TEST_DB_PASS: str
-    TEST_DB_NAME: str
-
-    @model_validator(mode="before")
-    @classmethod
-    def get_test_database_url(cls, v):
-        v["TEST_DATABASE_URL"] = (
-            f"postgresql+asyncpg://{v['TEST_DB_USER']}:{v['TEST_DB_PASS']}@{v['TEST_DB_HOST']}"
-            f":{v['TEST_DB_PORT']}/{v['TEST_DB_NAME']}"
-        )
-        return v
-
     SECRET_KEY: str
     ALGORITHM: str
 
